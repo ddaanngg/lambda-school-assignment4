@@ -2,9 +2,12 @@
   <link rel = "stylesheet" type = "text/css" href = "/static/styles/styles.css">
 </head>
 
-<h1 class="header">Home</h1>
+<h1 class="header">Search for a movie by title</h1>
 
-<p>Welcome to the movie database. This website is for assignment 4.</p>
+<form action = "/search_title" method = "GET">
+  <input name = "title" />
+  <input type = "submit" value = "Submit"/>
+</form>
 
 <p>Go to...</p>
 <a href="/home">Home</a>

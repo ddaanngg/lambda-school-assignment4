@@ -11,7 +11,7 @@ def home():
 def movie():
     return render_template('movie.html')
 
-@app.route('/add-movie', methods = ['POST'])
+@app.route('/add_movie', methods = ['POST'])
 def addmovie():
     connection = sqlite3.connect('database.db')
     cursor = connection.cursor()
@@ -48,7 +48,20 @@ def movies():
 
 @app.route('/search')
 def search():
+    return render_template('/search.html')
+
+@app.route('/search_title', methods = ['GET'])
+def searchtitle():
     connection = sqlite3.connect('database.db')
     cursor = connection.cursor()
+
+    try:
+        title = (request.args.get('title'),)
+        cursor.execute('SELECT * FROM movies WHERE title = ?', title)
+        data = cursor.fetchall()
+        return jsonify(data)
+    except:
+        return "Invalid search"
+        connection.close()
 
 app.run(debug = True)
