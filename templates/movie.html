@@ -1,0 +1,18 @@
+<head>
+  <link rel = "stylesheet" type = "text/css" href = "/static/styles/styles.css">
+</head>
+
+<h1 class="header">Add a movie</h1>
+
+<p>Enter a movie title, release year, and a description of the movie below</p>
+<form action = "/add-movie" method = "POST">
+  <input name = "title" />
+  <input name = "releaseyear" />
+  <input name = "description" />
+  <input type = "submit" value = "Submit"/>
+</form>
+
+<p>Go to...</p>
+<a href="/home">Home</a>
+<a href="/movie">Add a movie</a>
+<a href="/movies">All movies</a>
